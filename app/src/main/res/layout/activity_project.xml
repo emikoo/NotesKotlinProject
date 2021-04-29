@@ -26,6 +26,7 @@
         android:layout_marginEnd="@dimen/search_margin_horizontal"/>
 
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/list_projects"
         android:layout_width="match_parent"
         android:layout_height="@dimen/recycler_height"
         android:layout_marginTop="@dimen/recycler_top"
