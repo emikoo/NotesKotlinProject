@@ -11,8 +11,8 @@
         android:text="@string/colors"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="24dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginStart="@dimen/bottom_sheet_text_margins"
+        android:layout_marginTop="@dimen/bottom_sheet_text_margins"
         android:textColor="@color/colorBlack"/>
 
     <androidx.recyclerview.widget.RecyclerView
@@ -21,6 +21,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/title_color"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="@dimen/dp_16"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -17,14 +17,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_back"
-            android:layout_marginStart="21dp"/>
+            android:layout_marginStart="@dimen/dp_21"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/all_projects"
-            android:layout_marginStart="13dp"
-            android:textSize="16sp"
+            android:layout_marginStart="@dimen/dp_13"
+            android:textSize="@dimen/sp_16"
             android:textColor="@color/colorBlack"/>
 
     </androidx.appcompat.widget.Toolbar>
@@ -33,10 +33,10 @@
         android:id="@+id/et_add_project_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="40dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginStart="@dimen/dp_40"
+        android:layout_marginTop="@dimen/dp_8"
         android:hint="@string/add_a_project_title"
-        android:textSize="24sp"
+        android:textSize="@dimen/sp_24"
         android:textStyle="bold"
         android:background="@null"
         app:layout_constraintTop_toBottomOf="@id/toolbar_add_project"
@@ -50,7 +50,7 @@
         android:textColor="@color/backgroundBottomNav"
         android:textStyle="bold"
         android:background="@android:color/transparent"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="@dimen/dp_16"
         app:layout_constraintTop_toBottomOf="@id/et_add_project_title"
         app:layout_constraintStart_toStartOf="@id/et_add_project_title"/>
 

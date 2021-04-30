@@ -17,9 +17,9 @@
 
         <TextView
             android:id="@+id/tv_title"
-            android:layout_width="0dp"
+            android:layout_width="@dimen/dp_0"
             android:layout_height="wrap_content"
-            android:layout_margin="8dp"
+            android:layout_margin="@dimen/dp_8"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintBottom_toTopOf="@+id/view_project_indicator"
             app:layout_constraintEnd_toEndOf="parent"
@@ -29,8 +29,8 @@
         <View
             android:id="@+id/view_project_indicator"
             android:layout_width="match_parent"
-            android:layout_height="16dp"
-            android:layout_marginTop="24dp"
+            android:layout_height="@dimen/dp_16"
+            android:layout_marginTop="@dimen/dp_24"
             android:background="#7B1FA2"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
