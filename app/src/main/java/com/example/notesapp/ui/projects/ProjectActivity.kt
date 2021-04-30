@@ -1,11 +1,14 @@
 package com.example.notesapp.ui.projects
 
+import android.content.Intent
 import android.os.Handler
 import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notesapp.R
 import com.example.notesapp.data.model.Project
 import com.example.notesapp.ui.base.BaseActivity
+import com.example.notesapp.ui.create.CreateProjectActivity
+import com.example.notesapp.ui.create.CreateProjectViewModel
 import kotlinx.android.synthetic.main.activity_project.*
 
 class ProjectActivity : BaseActivity<ProjectViewModel>(
@@ -16,6 +19,7 @@ class ProjectActivity : BaseActivity<ProjectViewModel>(
     override fun setupViews() {
         setupRecyclerView()
         setupSearchView()
+        setupListeners()
     }
 
     private fun setupRecyclerView() {
@@ -49,6 +53,13 @@ class ProjectActivity : BaseActivity<ProjectViewModel>(
             }
         }
         )
+    }
+
+    private fun setupListeners() {
+        btn_add_project.setOnClickListener {
+            val intent = Intent(this, CreateProjectActivity::class.java)
+            startActivity(intent)
+        }
     }
 
     override fun subscribeToLiveData() {

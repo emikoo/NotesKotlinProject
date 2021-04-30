@@ -7,4 +7,5 @@
     <color name="colorBlack">#000000</color>
     <color name="colorGrey">#DCDCDF</color>
     <color name="backgroundBottomNav">#008DC4</color>
+    <color name="colorToolbarButton">#FF5757</color>
 </resources>

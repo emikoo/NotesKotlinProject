@@ -47,7 +47,7 @@
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintBottom_toBottomOf="parent"
             android:layout_marginStart="@dimen/bottom_nav_mangins"
-            android:src="@drawable/ic_it_academy"/>
+            android:background="@drawable/ic_it_academy"/>
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,6 +61,7 @@
             android:textColor="@color/colorGrey"/>
 
         <ImageButton
+            android:id="@+id/btn_add_project"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/ic_btn_edit"

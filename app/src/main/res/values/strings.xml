@@ -1,4 +1,9 @@
 <resources>
     <string name="app_name">NotesApp</string>
     <string name="projects">Projects</string>
+    <string name="create">Create</string>
+    <string name="all_projects">All projects</string>
+    <string name="add_a_project_title">Add a project title</string>
+    <string name="select_color">Select color</string>
+    <string name="colors">Colors</string>
 </resources>
