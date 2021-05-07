@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.notesapp.R
+import com.example.notesapp.data.model.PrimaryColor
 import com.example.notesapp.data.model.Project
 import com.example.notesapp.helper.ColorType
 import com.example.notesapp.ui.base.BaseAdapter

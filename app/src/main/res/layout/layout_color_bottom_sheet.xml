@@ -4,23 +4,20 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <TextView
-        android:id="@+id/title_color"
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar_color"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/colors"
+        app:title="@string/colors"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:layout_marginStart="@dimen/bottom_sheet_text_margins"
-        android:layout_marginTop="@dimen/bottom_sheet_text_margins"
-        android:textColor="@color/colorBlack"/>
+        app:navigationIcon="@drawable/ic_close_square" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_color"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/title_color"
-        android:layout_marginTop="@dimen/dp_16"/>
+        app:layout_constraintTop_toBottomOf="@id/toolbar_color"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

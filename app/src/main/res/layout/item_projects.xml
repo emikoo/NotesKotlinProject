@@ -29,7 +29,7 @@
         <View
             android:id="@+id/view_project_indicator"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/dp_16"
+            android:layout_height="17dp"
             android:layout_marginTop="@dimen/dp_24"
             android:background="#7B1FA2"
             app:layout_constraintBottom_toBottomOf="parent"

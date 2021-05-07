@@ -11,23 +11,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:menu="@menu/toolbar_create_project">
-
-        <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:background="@drawable/ic_back"
-            android:layout_marginStart="@dimen/dp_21"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/all_projects"
-            android:layout_marginStart="@dimen/dp_13"
-            android:textSize="@dimen/sp_16"
-            android:textColor="@color/colorBlack"/>
-
-    </androidx.appcompat.widget.Toolbar>
+        app:menu="@menu/toolbar_create_project"
+        app:navigationIcon="@drawable/ic_back"
+        app:title="@string/all_projects"/>
 
     <EditText
         android:id="@+id/et_add_project_title"
@@ -41,6 +27,15 @@
         android:background="@null"
         app:layout_constraintTop_toBottomOf="@id/toolbar_add_project"
         app:layout_constraintStart_toStartOf="parent"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/view_color"
+        android:layout_width="@dimen/circle_size"
+        android:layout_height="@dimen/circle_size"
+        android:background="@drawable/color_circle"
+        app:layout_constraintTop_toBottomOf="@id/et_add_project_title"
+        app:layout_constraintStart_toStartOf="@id/et_add_project_title"
+        android:visibility="gone"/>
 
     <Button
         android:id="@+id/btn_color"
