@@ -13,7 +13,7 @@ import com.example.notesapp.ui.base.BaseViewHolder
 import kotlinx.android.synthetic.main.item_empty.view.*
 import kotlinx.android.synthetic.main.item_projects.view.*
 
-class ProjectsAdapter: BaseAdapter() {
+class ProjectsAdapter(private val listener: ClickListener): BaseAdapter() {
 
     var projectArray = mutableListOf<Project>()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BaseViewHolder {
@@ -43,6 +43,9 @@ class ProjectsAdapter: BaseAdapter() {
     private fun setupProjectsViewHolder(holder: ProjectsViewHolder, position: Int) {
         val item = projectArray[position]
         holder.bind(item)
+        holder.itemView.setOnClickListener {
+            listener.onItemClick(item)
+        }
     }
 
     private fun setupEmptyViewHolder(holder: EmptyListViewHolder, position: Int) {
@@ -52,6 +55,19 @@ class ProjectsAdapter: BaseAdapter() {
     fun addItems(items: MutableList<Project>) {
         projectArray = items
         notifyDataSetChanged()
+    }
+
+    fun deleteItem(position: Int) {
+        projectArray.removeAt(position)
+        notifyItemRemoved(position)
+        notifyItemRangeChanged(position, itemCount)
+    }
+
+    fun restoreItem(item: Project?, position: Int){
+        if (item != null) {
+            projectArray.add(position, item)
+            notifyItemRangeChanged(position, itemCount)
+        }
     }
 
     companion object{
@@ -72,4 +88,8 @@ class ProjectsViewHolder(itemView: View): BaseViewHolder(itemView){
         itemView.view_project_indicator.setBackgroundColor(ColorType.getProjectColorType(item.color))
         itemView.tv_title.text = item.name
     }
+}
+
+interface ClickListener{
+    fun onItemClick(item: Project)
 }

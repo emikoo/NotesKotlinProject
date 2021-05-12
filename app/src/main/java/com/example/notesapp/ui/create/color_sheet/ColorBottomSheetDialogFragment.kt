@@ -1,24 +1,19 @@
 package com.example.notesapp.ui.create.color_sheet
 
-import android.graphics.Color
 import android.os.Bundle
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.notesapp.R
 import com.example.notesapp.data.model.PrimaryColor
-import com.example.notesapp.extentions.setCornerRadius
-import com.example.notesapp.helper.ColorType
 import com.example.notesapp.helper.ColorType.colors
-import com.example.notesapp.helper.showToast
+import com.example.notesapp.helper.showPerfectToast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
-import kotlinx.android.synthetic.main.activity_create_project.*
 import kotlinx.android.synthetic.main.layout_color_bottom_sheet.*
 
-class ColorBottomSheetDialogFragment: BottomSheetDialogFragment(), ClickListener {
+class ColorBottomSheetDialogFragment : BottomSheetDialogFragment(), ClickListener {
 
     companion object {
         const val COLOR_BOTTOM_SHEET = "CustomBottomSheetDialogFragment"
@@ -48,6 +43,13 @@ class ColorBottomSheetDialogFragment: BottomSheetDialogFragment(), ClickListener
         toolbar_color.setNavigationOnClickListener { this.dismiss() }
     }
 
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.add_color -> dismiss()
+        }
+        return true
+    }
+
     private fun setupRecyclerView() {
         adapter = ColorBottomSheetAdapter(this)
         list_color.layoutManager = GridLayoutManager(requireContext(), 6)
@@ -57,7 +59,7 @@ class ColorBottomSheetDialogFragment: BottomSheetDialogFragment(), ClickListener
     }
 
     override fun onItemClick(item: PrimaryColor) {
-        showToast(requireContext(), item.colorName)
-        this.dismiss()
+        showPerfectToast(requireContext(), item.colorName)
+
     }
 }

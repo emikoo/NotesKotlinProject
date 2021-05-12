@@ -1,24 +1,16 @@
 package com.example.notesapp.ui.create
 
-import androidx.appcompat.app.AppCompatActivity
-import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
+import androidx.lifecycle.Observer
 import com.example.notesapp.R
-import com.example.notesapp.data.model.PrimaryColor
-import com.example.notesapp.extentions.setCornerRadius
-import com.example.notesapp.helper.ColorType
+import com.example.notesapp.helper.showPerfectToast
 import com.example.notesapp.ui.base.BaseActivity
-import com.example.notesapp.ui.create.color_sheet.ClickListener
 import com.example.notesapp.ui.create.color_sheet.ColorBottomSheetDialogFragment
-import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.activity_create_project.*
-import kotlinx.android.synthetic.main.activity_project.*
-import kotlinx.android.synthetic.main.item_color.view.*
 
 class CreateProjectActivity : BaseActivity<CreateProjectViewModel>
-    (R.layout.activity_create_project, CreateProjectViewModel::class.java), ClickListener {
+    (R.layout.activity_create_project, CreateProjectViewModel::class) {
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         menuInflater.inflate(R.menu.toolbar_create_project, menu)
@@ -48,19 +40,26 @@ class CreateProjectActivity : BaseActivity<CreateProjectViewModel>
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.action_create -> {
-
-            }
+            R.id.action_create -> createProject()
         }
         return true
     }
 
+    private fun createProject() {
+        val projectName = et_add_project_title.text.toString()
+        viewModel.createProject(projectName)
+    }
+
     override fun subscribeToLiveData() {
+        viewModel.createResult.observe(this, Observer {
+            if (it == true) {
+                showPerfectToast(this, "Проект успешно создан")
+                finish()
+            }
+        })
 
+        viewModel.message.observe(this, Observer {
+            showPerfectToast(this, it)
+        })
     }
-
-    override fun onItemClick(item: PrimaryColor) {
-
-    }
-
 }

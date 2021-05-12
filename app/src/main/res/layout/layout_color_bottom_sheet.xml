@@ -11,7 +11,8 @@
         app:title="@string/colors"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:navigationIcon="@drawable/ic_close_square" />
+        app:navigationIcon="@drawable/ic_close_square"
+        app:menu="@menu/toolbar_color"/>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/list_color"
