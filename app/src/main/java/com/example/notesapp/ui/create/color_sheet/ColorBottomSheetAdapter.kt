@@ -1,6 +1,8 @@
 package com.example.notesapp.ui.create.color_sheet
 
+import android.content.res.ColorStateList
 import android.graphics.Color
+import android.graphics.PorterDuff
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,6 +11,8 @@ import com.example.notesapp.data.model.PrimaryColor
 import com.example.notesapp.data.model.Project
 import com.example.notesapp.extentions.setCornerRadius
 import com.example.notesapp.helper.ColorType
+import com.example.notesapp.helper.gone
+import com.example.notesapp.helper.visible
 import com.example.notesapp.ui.base.BaseAdapter
 import com.example.notesapp.ui.base.BaseViewHolder
 import kotlinx.android.synthetic.main.item_color.view.*
@@ -36,7 +40,7 @@ class ColorBottomSheetAdapter(private val listener: ClickListener): BaseAdapter(
         val color = colorArray[position]
         holder.bind(color)
         holder.itemView.setOnClickListener {
-            listener.onItemClick(color)
+            listener.onItemClick(color, position)
         }
     }
 
@@ -48,19 +52,11 @@ class ColorBottomSheetAdapter(private val listener: ClickListener): BaseAdapter(
 
 class ColorBottomSheetViewHolder(itemView: View): BaseViewHolder(itemView){
     fun bind(item: PrimaryColor) {
-        val radius = itemView.context.resources.getDimension(R.dimen.dp_25)
-
-        itemView.view_color.setBackgroundColor(ColorType.getProjectColorType(item.id))
-
-        itemView.view_color.setCornerRadius(
-            topLeft = radius,
-            topRight = radius,
-            bottomRight = radius,
-            bottomLeft = radius
-        )
+        if (item.selected) itemView.selected_color_view.visible()
+        else itemView.selected_color_view.gone()
+        itemView.color_view.background.setColorFilter(Color.parseColor(item.hexNumber), PorterDuff.Mode.SRC_ATOP)
     }
 }
-
 interface ClickListener {
-    fun onItemClick(item: PrimaryColor)
+    fun onItemClick(item: PrimaryColor, position: Int)
 }

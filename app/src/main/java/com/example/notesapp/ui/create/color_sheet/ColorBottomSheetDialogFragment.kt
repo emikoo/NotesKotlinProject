@@ -1,5 +1,6 @@
 package com.example.notesapp.ui.create.color_sheet
 
+import android.content.DialogInterface
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.MenuItem
@@ -13,12 +14,11 @@ import com.example.notesapp.helper.showPerfectToast
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import kotlinx.android.synthetic.main.layout_color_bottom_sheet.*
 
-class ColorBottomSheetDialogFragment : BottomSheetDialogFragment(), ClickListener {
+interface PickerColor {
+    fun chosenColor(colors: MutableList<PrimaryColor>)
+}
 
-    companion object {
-        const val COLOR_BOTTOM_SHEET = "CustomBottomSheetDialogFragment"
-    }
-
+class ColorBottomSheetDialogFragment(private val listener: PickerColor) : BottomSheetDialogFragment(), ClickListener {
     lateinit var adapter: ColorBottomSheetAdapter
 
     override fun onCreateView(
@@ -52,14 +52,31 @@ class ColorBottomSheetDialogFragment : BottomSheetDialogFragment(), ClickListene
 
     private fun setupRecyclerView() {
         adapter = ColorBottomSheetAdapter(this)
-        list_color.layoutManager = GridLayoutManager(requireContext(), 6)
+        list_color.layoutManager = GridLayoutManager(requireContext(), COUNT_OF_ROW)
         list_color.adapter = adapter
 
         adapter.addItems(colors)
     }
 
-    override fun onItemClick(item: PrimaryColor) {
-        showPerfectToast(requireContext(), item.colorName)
+    override fun onItemClick(item: PrimaryColor, position: Int) {
+        colors.forEach { it.selected = false }
+        colors[position].selected = true
+        adapter.addItems(colors)
+    }
 
+    companion object {
+        const val COUNT_OF_ROW = 6
+        const val COLOR_BOTTOM_SHEET = "CustomBottomSheetDialogFragment"
+    }
+
+    override fun onCancel(dialog: DialogInterface) {
+        super.onCancel(dialog)
+        dialog.cancel()
+        listener.chosenColor(colors)
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        colors.forEach { it.selected = false }
     }
 }

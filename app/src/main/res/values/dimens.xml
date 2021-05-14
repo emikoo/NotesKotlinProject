@@ -10,7 +10,7 @@
     <dimen name="recycler_top">16dp</dimen>
     <dimen name="recycler_height">0dp</dimen>
     <dimen name="bottom_nav_height">54dp</dimen>
-    <dimen name="circle_size">48dp</dimen>
+    <dimen name="circle_size">120dp</dimen>
     <dimen name="dp_20">20dp</dimen>
     <dimen name="dp_50">50dp</dimen>
     <dimen name="dp_30">30dp</dimen>
@@ -27,4 +27,7 @@
     <dimen name="dp_0">0dp</dimen>
     <dimen name="dp_24">24dp</dimen>
     <dimen name="bottom_sheet_text_margins">24dp</dimen>
+    <dimen name="dp_15">15dp</dimen>
+    <dimen name="dp_2">2dp</dimen>
+    <dimen name="dp_4">4dp</dimen> />
 </resources>

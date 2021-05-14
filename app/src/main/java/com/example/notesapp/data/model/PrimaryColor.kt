@@ -5,5 +5,6 @@ import java.io.Serializable
 data class PrimaryColor(
     val colorName: String,
     val hexNumber: String? = null,
-    val id: Int
+    val id: Int,
+    var selected: Boolean = false
 ) : Serializable
