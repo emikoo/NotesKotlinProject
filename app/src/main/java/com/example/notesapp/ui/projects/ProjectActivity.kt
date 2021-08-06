@@ -40,6 +40,7 @@ class ProjectActivity : BaseActivity<ProjectViewModel>(
     private fun setupSearchView() {
         search_view.setOnQueryTextListener(object :
             androidx.appcompat.widget.SearchView.OnQueryTextListener {
+
             override fun onQueryTextSubmit(query: String): Boolean {
                 return false
             }
@@ -49,7 +50,6 @@ class ProjectActivity : BaseActivity<ProjectViewModel>(
                     if (newText == "") {
                         adapter.addItems(viewModel.project)
                     } else {
-
                         val searchText = newText.toLowerCase()
                         val filtered = mutableListOf<Project>()
                         viewModel.project.forEach {

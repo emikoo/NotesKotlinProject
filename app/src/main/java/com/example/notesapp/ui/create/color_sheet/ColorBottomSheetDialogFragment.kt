@@ -62,11 +62,11 @@ class ColorBottomSheetDialogFragment(private val listener: PickerColor) : Bottom
         colors.forEach { it.selected = false }
         colors[position].selected = true
         adapter.addItems(colors)
+        showPerfectToast(requireContext(), item.colorName)
     }
 
     companion object {
         const val COUNT_OF_ROW = 6
-        const val COLOR_BOTTOM_SHEET = "CustomBottomSheetDialogFragment"
     }
 
     override fun onCancel(dialog: DialogInterface) {
